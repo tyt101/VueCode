@@ -15,7 +15,7 @@ const vm = new Vue({
                 {name:'222',age:33}
             ]
         }
-    }
+    },
 })
 // vm._data.friends[0].name='222'
 console.log(vm)

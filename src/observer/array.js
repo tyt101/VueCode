@@ -29,7 +29,7 @@ methodsToPatch.forEach(method=>{
             default:
                 break;
         }
-        if(inserted) ob.observeArray(inserted)
+        if(inserted) ob.observerArray(inserted)
         return result
     }
 })

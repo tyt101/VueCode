@@ -1,4 +1,6 @@
 import { arrayMethods} from './array.js'
+
+// 对data进行观测
 class Observer{
     constructor(value){
         //给每个响应式数据增加一个__ob__值，来防止已经被响应式观察过的数据被重复观察，同样可以用__ob__来获取数据本身
@@ -8,7 +10,7 @@ class Observer{
             configurable:true,
             writable:true
         })
-        //对数组单独处理
+        //对数组单独处理，重写数组中的方法等
         if(Array.isArray(value)){
             value.__proto__ = arrayMethods
             this.observerArray(value)
@@ -27,6 +29,7 @@ class Observer{
     defineReactive(obj,key,val){
         // 递归使无论对象还是数组。所有的数据都进行了观测
         observer(val)
+        
         Object.defineProperty(obj,key,{
             get(){
                 console.log("获取值：",val)
