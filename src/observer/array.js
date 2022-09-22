@@ -29,6 +29,7 @@ methodsToPatch.forEach(method=>{
             default:
                 break;
         }
+        // 当使用数组方法操作增加元素时，也进行观测
         if(inserted) ob.observerArray(inserted)
         return result
     }
